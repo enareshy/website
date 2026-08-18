@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-white text-ink antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  ::selection {
+    @apply bg-signal-500 text-white;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8;
+  }
+
+  .section-pad {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs font-medium uppercase tracking-[0.2em] text-signal-600;
+  }
+
+  .h-display {
+    @apply text-3xl font-semibold leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl;
+  }
+
+  .h-section {
+    @apply text-2xl font-semibold leading-tight tracking-tight sm:text-3xl lg:text-4xl;
+  }
+
+  .lead {
+    @apply text-lg leading-relaxed text-ink-500;
+  }
+
+  .hairline {
+    @apply border border-ink-100;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal-500;
+  }
+
+  .btn-primary {
+    @apply btn bg-signal-500 text-white hover:bg-signal-600;
+  }
+
+  .btn-secondary {
+    @apply btn border border-ink-200 bg-white text-ink hover:border-signal-500 hover:text-signal-600;
+  }
+
+  .btn-ghost {
+    @apply btn text-signal-600 hover:bg-signal-50;
+  }
+
+  .card {
+    @apply hairline rounded-lg bg-white p-6 shadow-card;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-signal-500 via-signal-400 to-data-400 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(11, 18, 32, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 18, 32, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .bg-signal-gradient {
+    background-image: linear-gradient(135deg, #0052cc 0%, #0066f5 55%, #00c2a8 130%);
+  }
+
+  .bg-hero {
+    background-image:
+      radial-gradient(ellipse 60% 55% at 78% 12%, rgba(0, 102, 245, 0.5), transparent),
+      radial-gradient(ellipse 45% 45% at 15% 88%, rgba(0, 194, 168, 0.32), transparent),
+      linear-gradient(160deg, #0b1220 0%, #0d1f45 58%, #05277a 100%);
+  }
+
+  .bg-callout {
+    background-image:
+      radial-gradient(ellipse 50% 60% at 90% 10%, rgba(0, 194, 168, 0.45), transparent),
+      linear-gradient(135deg, #0052cc 0%, #0066f5 60%, #0a7dff 100%);
+  }
+
+  .icon-tile {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-signal-500 to-signal-700 text-white shadow-lg shadow-signal-500/25;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
